@@ -1,7 +1,7 @@
 {% set name = "scorec" %}
-{% set version = "20161004" %}
+{% set version = "20200108" %}
 {% set build = 1 %}
-{% set sha256 = "f43585af3c45fa6d76e476596ccc950ab1dab9d3588d7d46ced9b88c4859eb0b" %}
+{% set sha256 = "4619856df9cecd66cc060eb02afeb34c959f0a6ce551d6840673d343a8ea6619" %}
 
 {% set mpi = mpi or 'mpich' %}
 
@@ -10,8 +10,8 @@ package:
   version: {{ version }}
 
 source:
-  fn: scorec_after_sim.tar.gz
-  url: https://github.com/SCOREC/core/archive/after_sim.tar.gz
+  fn: SCOREC-core-2.2.1-63-g2cdb8ef.tar.gz
+  url: https://github.com/SCOREC/core/tarball/2cdb8ef4b1ff0cc6a6cd457fa44da7ea9784cb93
   sha256: {{ sha256 }}
   patches:
     - 0001-fix-malloc-usage.patch  # [osx]
