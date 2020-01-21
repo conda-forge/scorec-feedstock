@@ -13,9 +13,9 @@ source:
   fn: SCOREC-core-2.2.1-63-g2cdb8ef.tar.gz
   url: https://github.com/SCOREC/core/tarball/2cdb8ef4b1ff0cc6a6cd457fa44da7ea9784cb93
   sha256: {{ sha256 }}
-  patches:
-    - 0001-fix-malloc-usage.patch  # [osx]
-    - 0002-fmemopen-memstream-ports-for-darwin.patch  # [osx]
+#  patches:
+#    - 0001-fix-malloc-usage.patch  # [osx]
+#    - 0002-fmemopen-memstream-ports-for-darwin.patch  # [osx]
 
 build:
   number: {{ build }}
