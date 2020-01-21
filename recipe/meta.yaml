@@ -1,5 +1,5 @@
 {% set name = "scorec" %}
-{% set version = "2.2.1-63-g2cdb8ef" %}
+{% set version = "2.2.1.63.g2cdb8ef" %}
 {% set build = 0 %}
 {% set sha256 = "e6a942d21c067e4242a5dd4267749e8f72d31a2dede245cc0ca8b5f223015c88" %}
 
