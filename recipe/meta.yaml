@@ -10,7 +10,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/SCOREC/core/archive/v2.2.2.tar.gz
+  url: https://github.com/SCOREC/core/archive/v{{ version }}.tar.gz
   sha256: {{ sha256 }}
 #  patches:
 #    - 0001-fix-malloc-usage.patch  # [osx]
