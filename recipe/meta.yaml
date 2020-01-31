@@ -1,7 +1,7 @@
 {% set name = "scorec" %}
-{% set version = "2.2.1.63.g2cdb8ef" %}
+{% set version = "2.2.2" %}
 {% set build = 0 %}
-{% set sha256 = "e6a942d21c067e4242a5dd4267749e8f72d31a2dede245cc0ca8b5f223015c88" %}
+{% set sha256 = "201ba8ad9f71e75fd2d6d7dc6da43dafd69233a16e022786c85f62c207fcbf0f" %}
 
 {% set mpi = mpi or 'mpich' %}
 
@@ -10,8 +10,7 @@ package:
   version: {{ version }}
 
 source:
-  #fn: SCOREC-core-2.2.1-63-g2cdb8ef.tar.gz
-  url: https://github.com/SCOREC/core/archive/2.2.1-63-g2cdb8ef.tar.gz
+  url: https://github.com/SCOREC/core/archive/v2.2.2.tar.gz
   sha256: {{ sha256 }}
 #  patches:
 #    - 0001-fix-malloc-usage.patch  # [osx]
