@@ -170,4 +170,5 @@ Feedstock Maintainers
 
 * [@SylvainCorlay](https://github.com/SylvainCorlay/)
 * [@davidbrochart](https://github.com/davidbrochart/)
+* [@zhang-alvin](https://github.com/zhang-alvin/)
 
