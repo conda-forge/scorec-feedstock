@@ -1,7 +1,7 @@
 {% set name = "scorec" %}
-{% set version = "2.2.2" %}
+{% set version = "2.2.3" %}
 {% set build = 0 %}
-{% set sha256 = "201ba8ad9f71e75fd2d6d7dc6da43dafd69233a16e022786c85f62c207fcbf0f" %}
+{% set sha256 = "07378bb84641bf00838f10188d236357570ce1f8a402ebee70a9b4ded0e5dad1" %}
 
 {% set mpi = mpi or 'mpich' %}
 
@@ -20,7 +20,7 @@ build:
   number: {{ build }}
   skip: true  # [win]
   {% set mpi_prefix = "mpi_" + mpi %}
-  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
+  string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ name }} * {{ mpi_prefix }}_*
 
