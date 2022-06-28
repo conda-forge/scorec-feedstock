@@ -173,4 +173,3 @@ Feedstock Maintainers
 * [@zhang-alvin](https://github.com/zhang-alvin/)
 * [@jhcollins](https://github.com/jhcollins/)
 * [@cekees](https://github.com/cekees/)
-
