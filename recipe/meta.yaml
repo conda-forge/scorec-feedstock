@@ -29,6 +29,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - make
   host:
     - {{ mpi }}
     - metis 5.1
