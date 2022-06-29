@@ -10,11 +10,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/SCOREC/core/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  - url: https://github.com/SCOREC/core/archive/v{{ version }}.tar.gz
+    sha256: {{ sha256 }}
 #  patches:
 #    - 0001-fix-malloc-usage.patch  # [osx]
 #    - 0002-fmemopen-memstream-ports-for-darwin.patch  # [osx]
+  - git_url: https://github.com/SCOREC/pumi-meshes.git
+    folder: pumi-meshes  
 
 build:
   number: {{ build }}
