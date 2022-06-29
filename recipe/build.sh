@@ -11,7 +11,7 @@ cmake .. \
    -DZOLTAN_LIBRARY=${PREFIX}/lib/libzoltan.a \
    -DBUILD_SHARED_LIBS=True \
    -DCMAKE_INSTALL_PREFIX=$PREFIX
-   -DMESHES="/pumi-meshes" \
+   -DMESHES=${SRC_DIR}/pumi-meshes \
 
 make VERBOSE=1
 make install
