@@ -3,6 +3,7 @@ mkdir -p build; cd $_
 cmake .. \
    -DCMAKE_C_COMPILER=mpicc \
    -DCMAKE_CXX_COMPILER=mpic++ \
+   -DCMAKE_MAKE_PROGRAM=make \
    -DENABLE_ZOLTAN=ON \
    -DMETIS_LIBRARY=$PREFIX/lib/libmetis${SHLIB_EXT} \
    -DPARMETIS_LIBRARY=$PREFIX/lib/libparmetis${SHLIB_EXT} \
