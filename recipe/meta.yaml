@@ -1,7 +1,7 @@
 {% set name = "scorec" %}
-{% set version = "2.2.2" %}
+{% set version = "2.2.7" %}
 {% set build = 0 %}
-{% set sha256 = "201ba8ad9f71e75fd2d6d7dc6da43dafd69233a16e022786c85f62c207fcbf0f" %}
+{% set sha256 = "f49a23a76e848206b1bc3bd51339ce3f708cce3253b310ce186ab8545c0cbe8e" %}
 
 {% set mpi = mpi or 'mpich' %}
 
@@ -10,17 +10,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://github.com/SCOREC/core/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  - url: https://github.com/SCOREC/core/archive/v{{ version }}.tar.gz
+    sha256: {{ sha256 }}
 #  patches:
 #    - 0001-fix-malloc-usage.patch  # [osx]
 #    - 0002-fmemopen-memstream-ports-for-darwin.patch  # [osx]
+  - git_url: https://github.com/SCOREC/pumi-meshes.git
+    folder: pumi-meshes  
 
 build:
   number: {{ build }}
   skip: true  # [win]
   {% set mpi_prefix = "mpi_" + mpi %}
-  string: "{{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}"
+  string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
   run_exports:
     - {{ name }} * {{ mpi_prefix }}_*
 
@@ -29,6 +31,7 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - cmake
+    - make
   host:
     - {{ mpi }}
     - metis 5.1
@@ -50,3 +53,5 @@ extra:
     - davidbrochart
     - SylvainCorlay
     - zhang-alvin
+    - cekees
+    - jhcollins
