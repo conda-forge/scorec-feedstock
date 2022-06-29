@@ -10,8 +10,8 @@ cmake .. \
    -DPARMETIS_INCLUDE_DIR=$PREFIX/include \
    -DZOLTAN_LIBRARY=${PREFIX}/lib/libzoltan.a \
    -DBUILD_SHARED_LIBS=True \
-   -DCMAKE_INSTALL_PREFIX=$PREFIX
-   -DMESHES=${SRC_DIR}/pumi-meshes \
+   -DCMAKE_INSTALL_PREFIX=$PREFIX \
+   -DMESHES="/home/conda/pumi-meshes" \
 
 make VERBOSE=1
 make install
