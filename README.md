@@ -1,11 +1,11 @@
-About scorec
-============
+About scorec-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/scorec-feedstock/blob/main/LICENSE.txt)
 
 Home: https://www.scorec.rpi.edu/software.php
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/scorec-feedstock/blob/main/LICENSE.txt)
 
 Summary: The SCOREC Core is a set of C/C++ libraries for unstructured mesh simulations on supercomputers.
 
@@ -30,28 +30,28 @@ Current build status
               <td>linux_64_mpimpich</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux_64_mpimpich" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpich" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>linux_64_mpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux_64_mpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_mpimpich</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx_64_mpimpich" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpich" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64_mpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx_64_mpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr>
