@@ -1,6 +1,6 @@
 {% set name = "scorec" %}
 {% set version = "2.2.7" %}
-{% set build = 0 %}
+{% set build = 1 %}
 {% set sha256 = "f49a23a76e848206b1bc3bd51339ce3f708cce3253b310ce186ab8545c0cbe8e" %}
 
 {% set mpi = mpi or 'mpich' %}
@@ -29,6 +29,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make
