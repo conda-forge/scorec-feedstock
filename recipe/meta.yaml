@@ -3,7 +3,10 @@
 {% set build = 0 %}
 {% set sha256 = "5216d0d5ac031c9357a59986b1bc6f2cbdbac0356059e98a2bec78c1777a59e2" %}
 
-{% set mpi = mpi or 'mpich' %}
+{% if mpi is not defined%}
+   {% set mpi = 'mpich'%}
+{% endif %}
+
 
 package:
   name: {{ name }}
