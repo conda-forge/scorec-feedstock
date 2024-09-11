@@ -33,6 +33,10 @@ requirements:
     - {{ compiler('cxx') }}
     - cmake
     - make
+    - {{ mpi }}
+    - metis >=5.1
+    - parmetis >=4.0
+    - zoltan >=3
   host:
     - {{ mpi }}
     - metis 5.1
