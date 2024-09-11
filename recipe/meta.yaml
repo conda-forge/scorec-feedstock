@@ -3,8 +3,6 @@
 {% set build = 0 %}
 {% set sha256 = "5216d0d5ac031c9357a59986b1bc6f2cbdbac0356059e98a2bec78c1777a59e2" %}
 
-{% set mpi = mpi or 'mpich' %}
-
 package:
   name: {{ name }}
   version: {{ version }}
@@ -30,6 +28,8 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
+    - {{ mpi }}
     - cmake
     - make
   host:
