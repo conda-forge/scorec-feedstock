@@ -15,9 +15,6 @@ package:
 source:
   - url: https://github.com/SCOREC/core/archive/v{{ version }}.tar.gz
     sha256: {{ sha256 }}
-#  patches:
-#    - 0001-fix-malloc-usage.patch  # [osx]
-#    - 0002-fmemopen-memstream-ports-for-darwin.patch  # [osx]
   - git_url: https://github.com/SCOREC/pumi-meshes.git
     folder: pumi-meshes
 
@@ -33,19 +30,18 @@ requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
-    - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
     - cmake
     - make
     - {{ mpi }}
-    - metis >=5.1
-    - parmetis >=4.0
-    - zoltan >=3
+    - metis >=5.1.0
+    - parmetis >=4.0.0
+    - zoltan >=3.0.0
   host:
     - {{ mpi }}
-    - metis 5.1
-    - parmetis 4.0
-    - zoltan 3
+    - metis >=5.1.0
+    - parmetis >=4.0.0
+    - zoltan >=3.0.0
 
 test:
   commands:
