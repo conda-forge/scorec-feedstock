@@ -37,11 +37,6 @@ requirements:
     - metis >=5.1.0
     - parmetis >=4.0.0
     - zoltan >=3.0.0
-  host:
-    - {{ mpi }}
-    - metis >=5.1.0
-    - parmetis >=4.0.0
-    - zoltan >=3.0.0
 
 test:
   commands:
