@@ -1,9 +1,11 @@
 mpi:
   - mpich  # [not win]
   - openmpi  # [not win]
+
 metis:
   - 5.1.0
   - 5.1.1
   - 5.2.1
+
 pin_run_as_build:
   metis: x.x.x

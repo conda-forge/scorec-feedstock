@@ -31,12 +31,19 @@ requirements:
     - {{ compiler('c') }}
     - {{ stdlib("c") }}
     - {{ compiler('cxx') }}
+    - git-lfs
     - cmake
     - make
+  host:
     - {{ mpi }}
-    - metis >=5.1.0
-    - parmetis >=4.0.0
-    - zoltan >=3.0.0
+    - metis
+    - parmetis
+    - zoltan
+  run:
+    - {{ mpi }}
+    - metis
+    - parmetis
+    - zoltan
 
 test:
   commands:
