@@ -12,6 +12,8 @@ cmake .. \
    -DBUILD_SHARED_LIBS=True \
    -DCMAKE_INSTALL_PREFIX=$PREFIX \
    -DMESHES="${SRC_DIR}/pumi-meshes" \
+   -DCMAKE_BUILD_TYPE=Debug \
+   -DSCOREC_CXX_FLAGS="-g" \
 
 make VERBOSE=1
 make install
