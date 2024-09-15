@@ -27,31 +27,87 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_mpimpich</td>
+              <td>linux_64_metis5.1.0mpimpich</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpimpich" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_metis5.1.0mpimpich" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_mpiopenmpi</td>
+              <td>linux_64_metis5.1.0mpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_mpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_metis5.1.0mpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpimpich</td>
+              <td>linux_64_metis5.1.1mpimpich</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpimpich" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_metis5.1.1mpimpich" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>osx_64_mpiopenmpi</td>
+              <td>linux_64_metis5.1.1mpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_mpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_metis5.1.1mpiopenmpi" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_metis5.2.1mpimpich</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_metis5.2.1mpimpich" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>linux_64_metis5.2.1mpiopenmpi</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_metis5.2.1mpiopenmpi" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_metis5.1.0mpimpich</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_metis5.1.0mpimpich" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_metis5.1.0mpiopenmpi</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_metis5.1.0mpiopenmpi" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_metis5.1.1mpimpich</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_metis5.1.1mpimpich" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_metis5.1.1mpiopenmpi</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_metis5.1.1mpiopenmpi" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_metis5.2.1mpimpich</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_metis5.2.1mpimpich" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_64_metis5.2.1mpiopenmpi</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=8153&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/scorec-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_metis5.2.1mpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr>
