@@ -20,12 +20,17 @@ cxx_compiler_version:
 - '17'
 macos_machine:
 - x86_64-apple-darwin13.4.0
+metis:
+- 5.1.0
 mpi:
-- mpich
+- openmpi
 mpich:
 - '4'
 openmpi:
 - '5'
+pin_run_as_build:
+  metis:
+    max_pin: x.x.x
 target_platform:
 - osx-64
 zip_keys:

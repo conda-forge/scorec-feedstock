@@ -8,12 +8,28 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_mpimpich:
-        CONFIG: linux_64_mpimpich
+      linux_64_metis5.1.0mpimpich:
+        CONFIG: linux_64_metis5.1.0mpimpich
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_mpiopenmpi:
-        CONFIG: linux_64_mpiopenmpi
+      linux_64_metis5.1.0mpiopenmpi:
+        CONFIG: linux_64_metis5.1.0mpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_metis5.1.1mpimpich:
+        CONFIG: linux_64_metis5.1.1mpimpich
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_metis5.1.1mpiopenmpi:
+        CONFIG: linux_64_metis5.1.1mpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_metis5.2.1mpimpich:
+        CONFIG: linux_64_metis5.2.1mpimpich
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_metis5.2.1mpiopenmpi:
+        CONFIG: linux_64_metis5.2.1mpiopenmpi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
   timeoutInMinutes: 360
