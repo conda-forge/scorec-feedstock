@@ -1,6 +1,6 @@
 mpi:
-  - mpich  # [not win]
-  - openmpi  # [not win]
+  - mpich
+  - openmpi
 
 metis:
   - 5.1.0
@@ -8,4 +8,7 @@ metis:
   - 5.2.1
 
 pin_run_as_build:
-  metis: x.x.x
+  metis:
+    max_pin: x.x.x
+  parmetis:
+    max_pin: x.x.x
