@@ -1,7 +1,7 @@
 {% set name = "scorec" %}
-{% set version = "2.2.8" %}
-{% set build = 5 %}
-{% set sha256 = "5216d0d5ac031c9357a59986b1bc6f2cbdbac0356059e98a2bec78c1777a59e2" %}
+{% set version = "4.1.0" %}
+{% set build = 0 %}
+{% set sha256 = "05dac11ff1cde9656053bdd59332b351d6507aa0c7ce48eea491ba0650ee71c6" %}
 
 {% if mpi is not defined %}
    {% set mpi = 'mpich' %}
