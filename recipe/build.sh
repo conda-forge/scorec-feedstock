@@ -1,6 +1,10 @@
 mkdir -p build; cd $_
 
+# SCOREC's CMakeLists.txt declares cmake_minimum_required(VERSION 3.0), which
+# CMake 4.x (this build image) hard-rejects rather than just warns about --
+# support for <3.5 was fully removed, not merely deprecated.
 cmake .. \
+   -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
    -DCMAKE_C_COMPILER=mpicc \
    -DCMAKE_CXX_COMPILER=mpicxx \
    -DCMAKE_MAKE_PROGRAM=make \
