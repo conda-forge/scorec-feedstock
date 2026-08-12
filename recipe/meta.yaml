@@ -1,6 +1,6 @@
 {% set name = "scorec" %}
 {% set version = "2.2.8" %}
-{% set build = 8 %}
+{% set build = 9 %}
 {% set sha256 = "5216d0d5ac031c9357a59986b1bc6f2cbdbac0356059e98a2bec78c1777a59e2" %}
 
 {% if mpi is not defined %}
@@ -21,6 +21,17 @@ source:
 build:
   number: {{ build }}
   skip: true  # [win]
+  # openmpi's own mpicc/mpicxx are real compiled binaries (unlike mpich's
+  # portable shell-script wrappers), and this recipe's build.sh sets them
+  # directly as CMAKE_C_COMPILER/CMAKE_CXX_COMPILER. Under the osx-arm64
+  # cross-compile (built from an osx-64 host), the host-arch mpicxx can't
+  # execute on the build machine at all: "mpicxx: Bad CPU type in
+  # executable" during CMake's own compiler-identification step, well
+  # before any of scorec's own code is touched. mpich's variants build
+  # cleanly on osx-arm64 since its wrapper is just a shell script. Confirmed
+  # via a real CI run (PR #28) -- all three mpich osx-arm64 variants
+  # succeeded, all three openmpi ones failed identically.
+  skip: true  # [osx and arm64 and mpi == "openmpi"]
   {% set mpi_prefix = "mpi_" + mpi %}
   string: {{ mpi_prefix }}_h{{ PKG_HASH }}_{{ build }}
   run_exports:
