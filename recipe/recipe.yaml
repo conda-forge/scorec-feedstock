@@ -1,0 +1,81 @@
+schema_version: 1
+
+context:
+  name: scorec
+  version: "4.1.0"
+  build: 0
+  sha256: 05dac11ff1cde9656053bdd59332b351d6507aa0c7ce48eea491ba0650ee71c6
+  # mpi is intentionally NOT set here -- it must come from the variant config
+  # (recipe/conda_build_config.yaml's `mpi: [mpich]` default, overridden per
+  # build by .ci_support/*.yaml) so the mpich/openmpi build matrix actually
+  # takes effect. Declaring it in context: would shadow the variant value
+  # with this fixed default on every build, silently ignoring the matrix --
+  # confirmed via a real rattler-build --render-only test.
+  mpi_prefix: ${{ "mpi_" + mpi }}
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  - url: https://github.com/SCOREC/core/archive/v${{ version }}.tar.gz
+    sha256: ${{ sha256 }}
+  - git: https://github.com/SCOREC/pumi-meshes.git
+    target_directory: pumi-meshes
+
+build:
+  number: ${{ build }}
+  string: ${{ mpi_prefix }}_h${{ hash }}_${{ build }}
+  # openmpi's own mpicc/mpicxx are real compiled binaries (unlike mpich's
+  # portable shell-script wrappers), and this recipe's build.sh sets them
+  # directly as CMAKE_C_COMPILER/CMAKE_CXX_COMPILER. Under the osx-arm64
+  # cross-compile (built from an osx-64 host), the host-arch mpicxx can't
+  # execute on the build machine at all: "mpicxx: Bad CPU type in
+  # executable" during CMake's own compiler-identification step, well
+  # before any of scorec's own code is touched. mpich's variants build
+  # cleanly on osx-arm64 since its wrapper is just a shell script. Confirmed
+  # via a real CI run (PR #28) -- all three mpich osx-arm64 variants
+  # succeeded, all three openmpi ones failed identically.
+  skip:
+    - win
+    - osx and arm64 and mpi == "openmpi"
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib("c") }}
+    - ${{ compiler('cxx') }}
+    - git-lfs
+    - cmake
+    - make
+  host:
+    - ${{ mpi }}
+    - metis
+    - parmetis
+    - zoltan
+  run:
+    - ${{ mpi }}
+    - metis
+    - parmetis
+  run_exports:
+    - ${{ name }} * ${{ mpi_prefix }}_*
+
+tests:
+  - script:
+      - if: unix
+        then:
+          - test -f ${PREFIX}/include/zoltan.h
+
+about:
+  license: BSD-3-Clause
+  license_file: LICENSE
+  summary: The SCOREC Core is a set of C/C++ libraries for unstructured mesh simulations on supercomputers.
+  homepage: https://www.scorec.rpi.edu/software.php
+
+extra:
+  recipe-maintainers:
+    - davidbrochart
+    - SylvainCorlay
+    - zhang-alvin
+    - cekees
+    - jhcollins
