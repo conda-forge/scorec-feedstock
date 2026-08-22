@@ -14,10 +14,16 @@ mkdir -p build; cd $_
 # expects mpi.h and -lmpi to be available. Supplying those to the ordinary conda
 # cross-compilers works for every platform/MPI combination and removes the skip.
 #
-# -isystem, not -I: CMake emits $(CXX_INCLUDES) ahead of $(CXX_FLAGS), so a plain
-# -I here loses to any include dir CMake discovered itself. Verified locally: a
-# stray second mpi.h won the race and produced an MPI_Comm ABI mismatch
-# (undefined pcu::PCU::DupComm(int*) -- MPICH's `int` vs openmpi's pointer type).
+# The MPI include dir goes in SCOREC_CXX_FLAGS, NOT CMAKE_C_FLAGS/CMAKE_CXX_FLAGS.
+# cmake/bob.cmake discards whatever is passed in CMAKE_<LANG>_FLAGS:
+# bob_begin_cxx_flags() starts from set(FLAGS "") and then overwrites
+# CMAKE_CXX_FLAGS with it, and bob_end_cxx_flags() replaces the result outright
+# when SCOREC_CXX_FLAGS is set. CMakeLists.txt:53 then copies CMAKE_CXX_FLAGS
+# into CMAKE_C_FLAGS, so this one variable covers both languages.
+# Passing it any other way gives "pcu_defines.h:6:10: fatal error: 'mpi.h' file
+# not found": in conda-build the compiler lives in $BUILD_PREFIX while mpi.h is
+# in $PREFIX, so nothing puts the host include dir on the default search path.
+# -isystem rather than -I keeps it out of the way of SCOREC's own headers.
 #
 # ZOLTAN_INCLUDE_DIR is passed explicitly for the same reason: left unset, SCOREC
 # searches for it and can settle on an unrelated prefix whose mpi.h then wins.
@@ -25,8 +31,6 @@ cmake .. \
    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
    -DCMAKE_C_COMPILER="${CC}" \
    -DCMAKE_CXX_COMPILER="${CXX}" \
-   -DCMAKE_C_FLAGS="${CFLAGS} -isystem ${PREFIX}/include" \
-   -DCMAKE_CXX_FLAGS="${CXXFLAGS} -isystem ${PREFIX}/include" \
    -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS} -lmpi" \
    -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS} -lmpi" \
    -DMPIRUN=$PREFIX/bin/mpirun \
@@ -41,7 +45,7 @@ cmake .. \
    -DCMAKE_INSTALL_PREFIX=$PREFIX \
    -DMESHES="${SRC_DIR}/pumi-meshes" \
    -DCMAKE_BUILD_TYPE=Debug \
-   -DSCOREC_CXX_FLAGS="-g"
+   -DSCOREC_CXX_FLAGS="-g -isystem ${PREFIX}/include"
 
 make VERBOSE=1
 make install
