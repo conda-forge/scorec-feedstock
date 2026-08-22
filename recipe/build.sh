@@ -25,14 +25,26 @@ mkdir -p build; cd $_
 # in $PREFIX, so nothing puts the host include dir on the default search path.
 # -isystem rather than -I keeps it out of the way of SCOREC's own headers.
 #
+# -lmpi goes in CMAKE_<LANG>_STANDARD_LIBRARIES, not CMAKE_*_LINKER_FLAGS.
+# Linker flags are emitted BEFORE the object files, and conda's Linux LDFLAGS
+# carry -Wl,--as-needed, so GNU ld drops a library that precedes everything
+# needing it -- giving "undefined reference to ompi_mpi_comm_world" and
+# "MPI_Comm_split" when linking test/ptnParma. STANDARD_LIBRARIES is appended
+# after the objects and target libraries, which is where a library has to sit.
+# macOS hides this: ld64 has no --as-needed and does not care about order, so
+# the linker-flags form built fine on osx-64/osx-arm64 and failed on both Linux
+# architectures.
+#
 # ZOLTAN_INCLUDE_DIR is passed explicitly for the same reason: left unset, SCOREC
 # searches for it and can settle on an unrelated prefix whose mpi.h then wins.
 cmake .. \
    -DCMAKE_POLICY_VERSION_MINIMUM=3.5 \
    -DCMAKE_C_COMPILER="${CC}" \
    -DCMAKE_CXX_COMPILER="${CXX}" \
-   -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS} -lmpi" \
-   -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS} -lmpi" \
+   -DCMAKE_EXE_LINKER_FLAGS="${LDFLAGS}" \
+   -DCMAKE_SHARED_LINKER_FLAGS="${LDFLAGS}" \
+   -DCMAKE_C_STANDARD_LIBRARIES="-lmpi" \
+   -DCMAKE_CXX_STANDARD_LIBRARIES="-lmpi" \
    -DMPIRUN=$PREFIX/bin/mpirun \
    -DCMAKE_MAKE_PROGRAM=make \
    -DENABLE_ZOLTAN=ON \
